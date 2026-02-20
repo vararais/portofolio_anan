@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Foto profil pribadi
+public/uploads/profil1.jpg
+
+# File environment rahasia
+.env*.local
