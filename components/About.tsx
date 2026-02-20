@@ -31,10 +31,11 @@ export default function About({ isDarkMode }: { isDarkMode: boolean }) {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: index * 0.05 }}
+      // PERBAIKAN BORDER: border-black/10 ditambahkan untuk Light Mode
       className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:scale-105 group ${
         isDarkMode 
           ? 'bg-white/5 border-white/10 hover:bg-white/10' 
-          : 'bg-white/50 border-white/40 shadow-sm hover:shadow-md'
+          : 'bg-white/50 border-black/10 shadow-sm hover:shadow-md'
       }`}
     >
       <div className="w-12 h-12 flex items-center justify-center p-2 rounded-xl bg-white/50 dark:bg-white/5 shadow-sm">
