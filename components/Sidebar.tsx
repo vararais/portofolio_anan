@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
-import { User, Code, Briefcase, Rocket, Award, Sun, Moon } from 'lucide-react';
+import { User, Code, Briefcase, Rocket, Sun, Moon } from 'lucide-react';
+import { motion } from 'framer-motion'; // <-- TAMBAHAN: Import framer-motion
 
 interface SidebarProps {
   activeTab: string;
@@ -15,7 +16,6 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
     { id: 'about', label: 'Tech Stack', icon: Code },
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'projects', label: 'Projects', icon: Rocket },
-    { id: 'achievements', label: 'Awards', icon: Award },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
         <div className="w-24 h-24 rounded-full border-4 border-orange-500/30 p-1 mb-4 shadow-lg shadow-orange-500/20">
           <div className="w-full h-full rounded-full overflow-hidden bg-gray-200 relative">
              <Image 
-               src="/uploads/profile.jpg" 
+               src="/uploads/profil1.jpg" 
                alt="Profile"
                fill
                className="object-cover"
@@ -38,7 +38,7 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
           FULLSTACK & ASST. LECTURER
         </p>
 
-        {/* --- TOMBOL TOGGLE SLIDE (Baru) --- */}
+        {/* --- TOMBOL TOGGLE SLIDE --- */}
         <button 
           onClick={toggleTheme}
           className={`relative w-14 h-8 rounded-full transition-colors duration-300 flex items-center px-1 shadow-inner ${
@@ -66,16 +66,22 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`group flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 relative overflow-hidden text-left ${
+              // TAMBAHAN: active:scale-95 biar ada efek ditekan
+              className={`group flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 relative overflow-hidden text-left active:scale-95 ${
                 isActive ? 'text-white shadow-lg shadow-orange-500/20' : 'text-gray-500 dark:text-gray-400 hover:bg-orange-500/10'
               }`}
             >
+              {/* TAMBAHAN: Animasi background meluncur menggunakan motion.div */}
               {isActive && (
-                <div className="absolute inset-0 bg-orange-500 rounded-2xl"></div>
+                <motion.div
+                  layoutId="active-sidebar-tab"
+                  className="absolute inset-0 bg-orange-500 rounded-2xl"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
               )}
               
-              <Icon size={20} className={`relative z-10 ${isActive ? 'text-white' : 'text-orange-500'}`} />
-              <span className={`relative z-10 font-bold tracking-wide text-sm ${isActive ? 'text-white' : ''}`}>
+              <Icon size={20} className={`relative z-10 transition-colors duration-300 ${isActive ? 'text-white' : 'text-orange-500'}`} />
+              <span className={`relative z-10 font-bold tracking-wide text-sm transition-colors duration-300 ${isActive ? 'text-white' : ''}`}>
                 {item.label}
               </span>
             </button>
