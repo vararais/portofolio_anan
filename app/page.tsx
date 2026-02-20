@@ -6,7 +6,6 @@ import LoadingScreen from '../components/LoadingScreen';
 import About from '../components/About';
 import Experience from '../components/Experience'; 
 import Projects from '../components/Projects'; 
-import Achievements from '../components/Achievements';
 import Profile from '../components/Profile'; // <--- TAMBAHAN: Import file baru
 
 export default function Home() {
@@ -27,8 +26,7 @@ export default function Home() {
         return <Experience isDarkMode={isDarkMode} />;
       case 'projects':
         return <Projects isDarkMode={isDarkMode} />;
-      case 'achievements':
-        return <Achievements isDarkMode={isDarkMode} />; 
+      // Menu achievement sudah dihapus dari sini
       default:
         return (
           <div className="flex flex-col items-center justify-center h-full text-orange-500/50">
