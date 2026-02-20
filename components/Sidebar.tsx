@@ -25,7 +25,6 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
       <div className="p-8 text-center flex flex-col items-center border-b border-gray-200/20 dark:border-white/10">
         <div className="w-24 h-24 rounded-full border-4 border-orange-500/30 p-1 mb-4 shadow-lg shadow-orange-500/20">
           <div className="w-full h-full rounded-full overflow-hidden bg-gray-200 relative">
-            /* GANTI BAGIAN INI */
             <img 
               src={process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || "/uploads/profil1.jpg"} 
               alt="Profile"
