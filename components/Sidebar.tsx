@@ -25,12 +25,12 @@ export default function Sidebar({ activeTab, setActiveTab, isDarkMode, toggleThe
       <div className="p-8 text-center flex flex-col items-center border-b border-gray-200/20 dark:border-white/10">
         <div className="w-24 h-24 rounded-full border-4 border-orange-500/30 p-1 mb-4 shadow-lg shadow-orange-500/20">
           <div className="w-full h-full rounded-full overflow-hidden bg-gray-200 relative">
-             <Image 
-               src="/uploads/profil1.jpg" 
-               alt="Profile"
-               fill
-               className="object-cover"
-             />
+            /* GANTI BAGIAN INI */
+            <img 
+              src={process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL || "/uploads/profil1.jpg"} 
+              alt="Profile"
+              className="w-full h-full object-cover" // Tambahkan class manual karena 'fill' tidak ada di img biasa
+            />
           </div>
         </div>
         <h1 className="text-2xl font-black text-orange-500 tracking-tighter">Anan Paradigma</h1>
