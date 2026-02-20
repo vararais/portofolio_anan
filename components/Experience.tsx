@@ -10,12 +10,6 @@ export default function Experience({ isDarkMode }: { isDarkMode: boolean }) {
       desc: "Mentoring students on vulnerability assessment, penetration testing, and software quality assurance standards."
     },
     {
-      year: "2026",
-      role: "PicoCTF Contributor",
-      company: "Capture The Flag Event",
-      desc: "Designed 'triple-secure' challenge demonstrating multi-layer security protocols for student competence tests."
-    },
-    {
       year: "2025 - 2026",
       role: "Fullstack Developer",
       company: "Freelance / Projects",
@@ -24,14 +18,14 @@ export default function Experience({ isDarkMode }: { isDarkMode: boolean }) {
     {
       year: "2025",
       role: "Research Team Lead",
-      company: "PKM-RE",
-      desc: "Led a research team to develop 'Library Input System' winning a Silver Medal. Managed UX research timeline."
+      company: "PKM-KC",
+      desc: "Led a research team to develop a web application for survey with Figma."
     },
     {
       year: "2024 - 2025",
-      role: "Lab Assistant",
-      company: "Database Systems",
-      desc: "Guided 40+ students in mastering complex SQL queries, triggers, and stored procedures with 100% grading accuracy."
+      role: "Lab Assistant for DTI & Basic Network",
+      company: "DTI and Network",
+      desc: "Guided students in mastering basic computer parts, operating systems, and Networking."
     }
   ];
 
@@ -45,19 +39,13 @@ export default function Experience({ isDarkMode }: { isDarkMode: boolean }) {
         JOURNEY
       </motion.h2>
 
-      {/* PERBAIKAN DISINI:
-        - flex-1: Mengambil sisa ruang tinggi yang ada
-        - overflow-y-auto: Mengaktifkan scroll vertikal jika konten panjang
-        - hide-scrollbar: Menyembunyikan batang scroll biar rapi
-        - pr-4: Memberi jarak kanan sedikit biar teks tidak mepet pinggir
-      */}
       <div className="flex-1 overflow-y-auto hide-scrollbar relative border-l-2 border-orange-500/30 ml-3 space-y-8 pb-4 pr-4">
         {experiences.map((exp, index) => (
           <motion.div 
             key={index}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }} // Dipercepat dikit delay-nya biar responsif
+            transition={{ delay: index * 0.1 }}
             className="ml-8 relative group"
           >
             {/* Dot Timeline */}
@@ -65,16 +53,21 @@ export default function Experience({ isDarkMode }: { isDarkMode: boolean }) {
               isDarkMode ? 'bg-black border-orange-500 group-hover:bg-orange-500' : 'bg-white border-orange-500 group-hover:bg-orange-500'
             }`}></div>
 
+            {/* PERBAIKAN BORDER: border-black/10 ditambahkan untuk Light Mode */}
             <div className={`p-6 rounded-2xl border transition-all hover:translate-x-1 ${
-              isDarkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white/50 border-white/40 shadow-sm hover:shadow-md'
+              isDarkMode ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-white/50 border-black/10 shadow-sm hover:shadow-md'
             }`}>
               <div className="flex justify-between items-start mb-2">
                 <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {exp.role}
                 </h3>
-                <span className="inline-block px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-[10px] font-black tracking-wider">
+                
+                <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-black tracking-wider ${
+                  isDarkMode ? 'bg-white/10 text-white' : 'bg-orange-500/10 text-orange-500'
+                }`}>
                   {exp.year}
                 </span>
+                
               </div>
               
               <p className={`text-xs font-bold uppercase tracking-widest mb-3 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`}>
